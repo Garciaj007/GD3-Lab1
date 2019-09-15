@@ -4,9 +4,19 @@ public class Scaler2D : MonoBehaviour
 {
     [SerializeField] private Vector2 speed = new Vector2(1,1);
 
-    // Update is called once per frame
+    private BlockAccelerator blockAccelerator;
+    private BeatScaler2D beatScaler2D;
+
+    private void Start()
+    {
+        blockAccelerator = GetComponent<BlockAccelerator>();
+        beatScaler2D = GetComponent<BeatScaler2D>();
+    }
+
     void Update()
     {
-        transform.localScale += new Vector3(speed.x * Time.deltaTime, speed.y * Time.deltaTime, 1);
+        var accel = blockAccelerator.Accelerator;
+        transform.localScale += new Vector3(speed.x * Time.deltaTime * accel,
+                                            speed.y * Time.deltaTime * accel, 0);
     }
 }

@@ -1,32 +1,42 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
 public class BlockManager : MonoBehaviour
 {
-    private UnityEvent spawnBlockEvent;
+    public static BlockManager Instance { get; private set; }
 
     [SerializeField] private float[] degrees;
     [SerializeField] private GameObject[] patterns;
     [SerializeField] private Vector2 delayRange;
-    [SerializeField] private float perlinIncrementAmnt = 10.0f;
+
+    [SerializeField] private List<GameObject> blocks = new List<GameObject>();
+
+    public List<GameObject> Blocks
+    {
+        get
+        {
+            return blocks;
+        }
+    }
 
     private float currentTime = 0;
     private float previousTime = 0;
-    private float perlinIncr = 0;
-    private float delay = 2.0f;
+    [SerializeField] private float delay = 2f;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(this.gameObject);
+        else
+            Instance = this;
+    }
 
     private void Start()
     {
-        Debug.Assert(patterns.Length > 0 || degrees.Length > 0);
-
         previousTime = Time.time;
 
-        if (spawnBlockEvent == null)
-            spawnBlockEvent = new UnityEvent();
-
-        spawnBlockEvent.AddListener(SpawnBlock);
-
-        perlinIncr = Random.Range(0.0f, 10.0f);
+        GameManager.resetGameDelegate += Reset;
     }
 
     // Update is called once per frame
@@ -35,35 +45,45 @@ public class BlockManager : MonoBehaviour
         if(currentTime - previousTime > delay)
         {
             previousTime = currentTime;
-            spawnBlockEvent.Invoke();
+            SpawnBlock();
         }
-
         currentTime = Time.time;
+    }
+
+    private void Reset()
+    {
+        currentTime = 0;
+        previousTime = 0;
+        delay = 2f;
+
+        foreach(var block in blocks)
+        {
+            Destroy(block);
+        }
     }
 
     private void SpawnBlock()
     {
-        perlinIncr += perlinIncrementAmnt;
         delay = GetNewDelay();
-        Instantiate(GetPrefabFromRange(), Vector3.zero, GetNewRotation());
+        var block = Instantiate(GetPrefabFromRange(), Vector3.zero, GetNewRotation());
+        block.AddComponent<DestroyWithDelay>().DestroyDelay = 8f;
+        blocks.Add(block);
     }
 
     private float GetNewDelay()
     {
-         return Random.Range(delayRange.x, delayRange.y);
+        return Random.Range(delayRange.x / DifficultyManager.Instance.Difficulty, delayRange.y / DifficultyManager.Instance.Difficulty);
     }
 
     private Quaternion GetNewRotation()
     {
-        //int rotationIndex = Mathf.Clamp(Mathf.RoundToInt(Mathf.PerlinNoise(perlinIncr, perlinIncr) * degrees.Length), 0, degrees.Length - 1);
         int rotationIndex = Random.Range(0, degrees.Length);
         return Quaternion.Euler(0, 0, degrees[rotationIndex]);
     }
 
     private GameObject GetPrefabFromRange()
     {
-        //int patternIndex = Mathf.Clamp(Mathf.RoundToInt(Mathf.PerlinNoise(perlinIncr, perlinIncr) * patterns.Length), 0, patterns.Length - 1);
-        int patternIndex = Random.Range(0, degrees.Length);
+        int patternIndex = Random.Range(0, patterns.Length);
         return patterns[patternIndex];
     }
 }

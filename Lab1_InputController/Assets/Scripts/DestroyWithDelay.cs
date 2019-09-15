@@ -2,11 +2,16 @@
 
 public class DestroyWithDelay : MonoBehaviour
 {
-    [SerializeField] private float destroyDelay = 5.0f;
+    public float DestroyDelay { private get; set; }
 
     // Update is called once per frame
     private void Update()
     {
-        Destroy(gameObject, destroyDelay);
+        Destroy(gameObject, DestroyDelay);
+    }
+
+    private void OnDestroy()
+    {
+        BlockManager.Instance.Blocks.Remove(gameObject);
     }
 }

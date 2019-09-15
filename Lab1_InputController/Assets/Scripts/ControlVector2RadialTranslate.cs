@@ -20,7 +20,10 @@ public class ControlVector2RadialTranslate : ControlComponent
 
     public override void Execute()
     {
-        angularPosition += ((Vector2)cachedVector).x * angularSpeed;
-        transform.position = new Vector2(radius * Mathf.Sin(angularPosition), radius * Mathf.Cos(angularPosition));
+        if (Time.deltaTime != 0)
+        {
+            angularPosition += ((Vector2)cachedVector).x * angularSpeed * (DifficultyManager.Instance.Difficulty / 15);
+            transform.position = new Vector2(radius * Mathf.Sin(angularPosition), radius * Mathf.Cos(angularPosition));
+        }
     }
 }
