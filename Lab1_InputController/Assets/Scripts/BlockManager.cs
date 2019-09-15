@@ -6,9 +6,9 @@ public class BlockManager : MonoBehaviour
 {
     public static BlockManager Instance { get; private set; }
 
-    [SerializeField] private float[] degrees;
-    [SerializeField] private GameObject[] patterns;
-    [SerializeField] private Vector2 delayRange;
+    [SerializeField] private float[] degrees = null;
+    [SerializeField] private GameObject[] patterns = null;
+    [SerializeField] private Vector2 delayRange = Vector2.zero;
 
     [SerializeField] private List<GameObject> blocks = new List<GameObject>();
 

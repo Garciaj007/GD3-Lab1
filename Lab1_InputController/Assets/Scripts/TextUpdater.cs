@@ -15,6 +15,6 @@ public class TextUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = Stopwatch.Instance.Count.ToString("F2");
+        text.text = Utils.TimeFormat.FormatTime(Stopwatch.Instance.Count);
     }
 }

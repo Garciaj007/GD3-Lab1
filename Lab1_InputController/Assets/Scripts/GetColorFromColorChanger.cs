@@ -6,7 +6,7 @@ public class GetColorFromColorChanger : MonoBehaviour
 {
     public enum ColorType { Dark, Light, Accent }
 
-    [SerializeField] private ColorType colorType;
+    [SerializeField] private ColorType colorType = ColorType.Dark;
 
     private SpriteRenderer sp;
 

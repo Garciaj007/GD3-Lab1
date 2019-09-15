@@ -3,7 +3,7 @@
 public class InputTransformDeltaToVector2 : InputComponent
 {
     [Header("Targetting")]
-    [SerializeField] private Transform target;
+    [SerializeField] private Transform target = null;
     [Header("Data Node")]
     [SerializeField] private string dataName = "inputVector2";
 

@@ -7,10 +7,10 @@ public class GameManager : MonoBehaviour
     public static event OnResetGameDelegate resetGameDelegate;
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private Canvas MenuCanvas;
-    [SerializeField] private Canvas GameCanvas;
-    [SerializeField] private TextMeshProUGUI title;
-    [SerializeField] private TextMeshProUGUI button;
+    [SerializeField] private Canvas MenuCanvas = null;
+    [SerializeField] private Canvas GameCanvas = null;
+    [SerializeField] private TextMeshProUGUI title = null;
+    [SerializeField] private TextMeshProUGUI button = null;
 
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         BlockCollisionDetect.blockCollisionDelegate += GameOver;
+        GameCanvas.enabled = false;
         Time.timeScale = 0;
     }
 
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     public void Resume()
     {
         MenuCanvas.enabled = false;
+        GameCanvas.enabled = true;
         Time.timeScale = 1;
     }
 
@@ -50,7 +52,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
         MenuCanvas.enabled = true;
-        title.text = Stopwatch.Instance.Count.ToString("F2");
+        GameCanvas.enabled = false;
+        title.text = Utils.TimeFormat.FormatTime(Stopwatch.Instance.Count);
         button.text = "Restart";
     }
 
