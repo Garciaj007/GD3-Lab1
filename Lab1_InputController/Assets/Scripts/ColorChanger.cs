@@ -24,8 +24,8 @@ public class ColorChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mainHue += BeatScaler2D.Instance.Scale / slope;
-        accentHue += BeatScaler2D.Instance.Scale / slope;
+        mainHue += BeatScalar.Instance.Scalar / slope;
+        accentHue += BeatScalar.Instance.Scalar / slope;
         mainHue %= 1f;
         accentHue %= 1f;
 

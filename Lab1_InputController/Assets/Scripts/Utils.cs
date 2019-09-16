@@ -10,7 +10,7 @@ public static class Utils
         {
             int seconds = (int)time;
             int millis = (int)(1000 * (time % 1));
-            return string.Format("{0:000}:{1:000}", seconds, millis);
+            return string.Format("{0:00}:{1:00}", seconds, millis);
         }
     }
 }

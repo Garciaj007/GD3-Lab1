@@ -94,7 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a6a58158f7388458c9cf6178bbf0c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleDirection: {x: 1, y: 1, z: 1}
+  scale: {x: 1, y: 1, z: 1}
+  affectScale: {x: 1, y: 1, z: 1}
 --- !u!114 &7684938694817901908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorType: 0
+  objectType: 0
 --- !u!1 &2719938304297213590
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +169,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2719938304297213591
 MonoBehaviour:
@@ -194,7 +196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd514fa7a617f1a4a8bec49549275fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 1, y: 0.1}
+  speed: {x: 1.1, y: 0.1}
 --- !u!114 &421902401267099209
 MonoBehaviour:
   m_ObjectHideFlags: 0
