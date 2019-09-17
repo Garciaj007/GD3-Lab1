@@ -35,14 +35,9 @@ public class GameManager : MonoBehaviour
             Reset();
     }
 
-    public void Pause()
-    {
-        Time.timeScale = 0;
-        MenuCanvas.enabled = true;
-    }
-
     public void Resume()
     {
+        Cursor.visible = false;
         MenuCanvas.enabled = false;
         GameCanvas.enabled = true;
         Time.timeScale = 1;
@@ -50,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
+        Cursor.visible = true;
         Time.timeScale = 0;
         MenuCanvas.enabled = true;
         GameCanvas.enabled = false;

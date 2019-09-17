@@ -27,6 +27,7 @@ public class DifficultyManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if(Time.timeScale != 0)
         Difficulty += difficultyIncrement;
         difficulty = Difficulty;
     }
