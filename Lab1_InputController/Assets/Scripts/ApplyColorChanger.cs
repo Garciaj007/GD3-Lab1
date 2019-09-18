@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ApplyColorChanger : MonoBehaviour
@@ -13,7 +10,7 @@ public class ApplyColorChanger : MonoBehaviour
     [SerializeField] private ObjectType objectType = ObjectType.Sprite;
 
     private SpriteRenderer sp = null;
-    private TextMeshProUGUI text = null;
+    private Text text = null;
     private Camera cam = null;
     private Image image = null;
 
@@ -23,7 +20,7 @@ public class ApplyColorChanger : MonoBehaviour
         {
             case ObjectType.Sprite: sp = GetComponent<SpriteRenderer>();
                 break;
-            case ObjectType.Text: text = GetComponent<TextMeshProUGUI>();
+            case ObjectType.Text: text = GetComponent<Text>();
                 break;
             case ObjectType.Image: image = GetComponent<Image>();
                 break;

@@ -39,7 +39,6 @@ public class BlockManager : MonoBehaviour
         GameManager.resetGameDelegate += Reset;
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if(currentTime - previousTime > delay)

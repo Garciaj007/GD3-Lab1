@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Canvas MenuCanvas = null;
     [SerializeField] private Canvas GameCanvas = null;
-    [SerializeField] private TextMeshProUGUI title = null;
-    [SerializeField] private TextMeshProUGUI button = null;
+    [SerializeField] private Text timer = null; 
+    [SerializeField] private Text title = null;
+    [SerializeField] private Text button = null;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayButtonPressed(GameObject btn)
     {
-        if (btn.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text == "Start")
+        if (btn.transform.GetChild(0).GetComponent<Text>().text == "Start")
             Resume();
         else
             Reset();
@@ -49,7 +50,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         MenuCanvas.enabled = true;
         GameCanvas.enabled = false;
-        title.text = Utils.TimeFormat.FormatTime(Stopwatch.Instance.Count);
+        title.text = timer.text;
         button.text = "Restart";
     }
 
