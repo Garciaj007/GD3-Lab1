@@ -2,14 +2,14 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-Lab1_InputController/[Ll]ibrary/
-Lab1_InputController/[Tt]emp/
-Lab1_InputController/[Oo]bj/
-Lab1_InputController/[Bb]uild/
-Lab1_InputController/[Bb]uilds/
-Lab1_InputController/[Bb]in/
-Lab1_InputController/[Ll]ogs/
-Lab1_InputController/[Mm]emoryCaptures/
+*/[Ll]ibrary/
+*/[Tt]emp/
+*/[Oo]bj/
+*/[Bb]uild/
+*/[Bb]uilds/
+*/[Bb]in/
+*/[Ll]ogs/
+*/[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -63,3 +63,4 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.zip
+*.mp3
