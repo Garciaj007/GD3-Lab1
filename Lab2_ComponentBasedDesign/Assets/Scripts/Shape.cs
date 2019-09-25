@@ -61,7 +61,7 @@ public class Shape : MonoBehaviour
         mesh.Clear();
         mesh.vertices = verticies;
         mesh.triangles = indicies;
-        //mesh.RecalculateNormals();
+        mesh.RecalculateNormals();
     }
 
     protected void UpdateCollisionPath()
