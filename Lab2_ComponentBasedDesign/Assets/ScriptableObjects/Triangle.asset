@@ -18,6 +18,7 @@ MonoBehaviour:
   attackRate: 2
   attackDamage: 2
   MaxHealth: 10
+  MaxRotateAngle: 60
   rotationAmount: 120
   curve:
     serializedVersion: 2
