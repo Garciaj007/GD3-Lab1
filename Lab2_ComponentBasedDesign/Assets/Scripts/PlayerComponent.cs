@@ -10,6 +10,7 @@ class PlayerEntity : ScriptableObject
     public float attackRate;
     public float attackDamage;
     public float MaxHealth;
+    public float MaxRotateAngle;
 
     [Header("SFX")]
     public float rotationAmount;
@@ -23,6 +24,8 @@ class PlayerComponent : MonoBehaviour
     [SerializeField] private PlayerEntity sciptable = null;
     private SpriteRenderer sp = null;
     private HealthComponent healthComponent = null;
+
+    public PlayerEntity Sciptable { get => sciptable; private set => sciptable = value; }
 
     private void Awake()
     {
