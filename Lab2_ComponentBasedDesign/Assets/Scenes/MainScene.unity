@@ -1137,7 +1137,7 @@ PrefabInstance:
     - target: {fileID: 4785713996083689286, guid: ab702d5b20d8d324e80e59a01d541a0e,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: TrianglePlayer
       objectReference: {fileID: 0}
     - target: {fileID: 4785713996083689290, guid: ab702d5b20d8d324e80e59a01d541a0e,
         type: 3}

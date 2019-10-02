@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Triangle
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: c33a982064d32f34fac73864e714f53e, type: 3}
-  movementSpeed: 0
+  movementSpeed: 1
   attackRate: 0
   attackDamage: 0
   MaxHealth: 0
-  rotationAmount: 0
+  rotationAmount: 10
   curve:
     serializedVersion: 2
     m_Curve: []
