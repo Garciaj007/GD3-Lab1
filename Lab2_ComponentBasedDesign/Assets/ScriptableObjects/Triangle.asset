@@ -16,7 +16,7 @@ MonoBehaviour:
   movementSpeed: 0
   attackRate: 0
   attackDamage: 0
-  MaxHealth: 0
+  MaxHealth: 100
   rotationAmount: 0
   curve:
     serializedVersion: 2

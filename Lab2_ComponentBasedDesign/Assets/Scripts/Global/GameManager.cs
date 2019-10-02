@@ -2,25 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
+
     private GameObject currentSelected = null;
+    private UIManager UI = null;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    private void Start() {
         EntityClickController.onCharacterClick += ChangeCurrentSelected;
+        UI = GetComponent<UIManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Update() {
+
     }
 
-    void ChangeCurrentSelected(GameObject gameObject_)
-    {
+    private void ChangeCurrentSelected(GameObject gameObject_) {
         currentSelected = gameObject_;
         Debug.Log("Selected: " + currentSelected.name);
+    }
+
+    // Get the current selected target
+    public GameObject getCurrentSelected() {
+        return currentSelected;
     }
 }

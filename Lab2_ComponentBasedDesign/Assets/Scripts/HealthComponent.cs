@@ -25,6 +25,8 @@ public class HealthComponent : MonoBehaviour
         health = newHeath > maxHealth ? maxHealth : newHeath;
     }
 
+
+    public float GetHealthPercent() { return health / maxHealth; }
     public float GetHealth() { return health; }
     public void SetHealth(float health_) => health = health_;
     public float GetMaxHealth() { return health; }
