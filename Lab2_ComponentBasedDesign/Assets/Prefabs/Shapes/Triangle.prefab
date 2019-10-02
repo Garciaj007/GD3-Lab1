@@ -140,4 +140,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shape: {fileID: 0}
   animationSpeed: 0.1
-  shapeScale: 6
+  shapeScale: 1
