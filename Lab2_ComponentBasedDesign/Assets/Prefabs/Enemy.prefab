@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4271376138420938743}
   - component: {fileID: 4271376138420938742}
   - component: {fileID: 4963218171797022316}
-  - component: {fileID: 475583883}
+  - component: {fileID: 5332827780151024112}
   - component: {fileID: 96708465892632007}
   - component: {fileID: 8342688897650641290}
+  - component: {fileID: -3954181209330595872}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -83,19 +84,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &475583883
-MonoBehaviour:
+--- !u!50 &5332827780151024112
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4271376138420938740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb048a93de019d74f8d4047b1dcf848f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointPacks: {fileID: 0}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 1
+  m_AngularDrag: 1
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &96708465892632007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,4 +131,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386187277d866d9498cad4fa791b4cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptable: {fileID: 11400000, guid: a0e6386cb47aac3469dca041e5b3e7e1, type: 2}
+  entity: {fileID: 0}
+--- !u!114 &-3954181209330595872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4271376138420938740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb048a93de019d74f8d4047b1dcf848f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
