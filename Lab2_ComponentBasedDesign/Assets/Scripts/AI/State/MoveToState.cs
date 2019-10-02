@@ -1,32 +1,39 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class MoveToStateEvent : UnityEvent<MoveToState> { }
 
 public class MoveToState : StateMachineBehaviour
 {
-    private GameObject gameObject;
+    public MoveToStateEvent PosVecEvent;
+    public float Speed;
 
-    private LaneAgentData laneAgentData;
+    public string SuccessKey;
+
+    internal Vector3 target;
+
+    internal GameObject gameObject;
+    private Rigidbody2D body;
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gameObject = animator.gameObject;
+        body = gameObject.GetComponent<Rigidbody2D>();
 
-        laneAgentData = gameObject.GetComponent<LaneAgentData>();
+        PosVecEvent.Invoke(this);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (laneAgentData.lastPoint == null)
+        // If too close
+        if (Vector3.Distance(gameObject.transform.position, target) < 1f)
         {
-            laneAgentData.SiwtchLastPoint(0);
+            animator.SetBool(SuccessKey, true);
         }
 
-        // Check distance
-        if (Vector3.Distance(laneAgentData.lastPoint.transform.position, gameObject.transform.position) < 0.1f)
-        {
-            laneAgentData.SiwtchLastPoint(laneAgentData.pointIndex + 1);
-        }
-
-        // Move
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, laneAgentData.lastPoint.transform.position, 3f * Time.deltaTime);
+        var direction = Vector3.zero;
+        direction = target - gameObject.transform.position;
+        body.AddRelativeForce(direction.normalized * Speed, ForceMode2D.Force);
     }
 }
