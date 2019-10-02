@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4785713996083689290}
-  - component: {fileID: 4785713996083689289}
   - component: {fileID: 4785713996083689288}
-  - component: {fileID: 4785713996083689287}
+  - component: {fileID: 4785713996083689289}
+  - component: {fileID: 7389508016124008311}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,20 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4785713996083689289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4785713996083689286}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 054a79a9303f16340bf67103b9414853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 1
 --- !u!212 &4785713996083689288
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4785713996083689287
+--- !u!114 &4785713996083689289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,7 +91,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4785713996083689286}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2fcb2b193499f448a4a211d09b0a5ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 054a79a9303f16340bf67103b9414853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sciptable: {fileID: 11400000, guid: ebb29455272e9384cba9f3240b29b8f7, type: 2}
+  health: 0
+  maxHealth: 1
+--- !u!114 &7389508016124008311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785713996083689286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386187277d866d9498cad4fa791b4cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptable: {fileID: 0}

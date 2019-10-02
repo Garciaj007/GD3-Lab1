@@ -6,7 +6,7 @@ public class PlayerMovementState : StateMachineBehaviour
 
     private Rigidbody2D body;
 
-    private PlayerEntity playerEntity;
+    private Entity playerEntity;
 
     private Vector3 point;
     Quaternion rot;
@@ -18,7 +18,7 @@ public class PlayerMovementState : StateMachineBehaviour
         // Get Rigidbody2D
         body = gameObject.GetComponent<Rigidbody2D>();
         // Get PlayerEntity
-        playerEntity = gameObject.GetComponent<PlayerComponent>().Sciptable;
+        playerEntity = gameObject.GetComponent<EntityComponent>().Entity;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
