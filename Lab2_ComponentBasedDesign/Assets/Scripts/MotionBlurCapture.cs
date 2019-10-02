@@ -2,13 +2,18 @@
 
 public class MotionBlurCapture : MonoBehaviour
 {
-    [SerializeField] private Camera renderCamera;
+    private Camera renderCamera;
 
     private void Awake()
     {
-        if (renderCamera.targetTexture != null)
-            renderCamera.targetTexture.Release();
+        renderCamera = GetComponent<Camera>();
+    }
 
-        renderCamera.targetTexture = new RenderTexture(Screen.width, Screen.height, 10);
+    private void Start()
+    {
+        renderCamera.targetTexture.width = Screen.width;
+        renderCamera.targetTexture.height = Screen.height;
+
+        renderCamera.orthographicSize = renderCamera.orthographicSize;
     }
 }

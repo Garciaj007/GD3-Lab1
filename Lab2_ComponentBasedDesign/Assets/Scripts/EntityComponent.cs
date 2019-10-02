@@ -10,11 +10,8 @@ class EntityComponent : MonoBehaviour {
     public Entity Entity { get { return entity; } }
 
     private void Awake() {
-        healthComponent = GetComponent<HealthComponent>();
-    }
-
-    private void Start() {
         name = entity.name;
+        healthComponent = GetComponent<HealthComponent>();
         healthComponent.SetMaxHealth(entity.MaxHealth);
     }
 

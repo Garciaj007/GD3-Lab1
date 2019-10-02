@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CharacterClickController.onCharacterClick += ChangeCurrentSelected;
+        EntityClickController.onCharacterClick += ChangeCurrentSelected;
     }
 
     // Update is called once per frame
