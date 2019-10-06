@@ -10,7 +10,7 @@ public class PlayerIdleState : StateMachineBehaviour
     public override void OnStateEnter(UnityEngine.Animator animator, UnityEngine.AnimatorStateInfo stateInfo, int layerIndex)
     {
         controller = animator.gameObject.GetComponent<PlayerController>();
-        controller.OnTrigger2DStay += OnPlayerTrigger2DEnter;
+        //controller.OnTrigger2DStay += OnPlayerTrigger2DEnter;
 
         ani = animator;
 
@@ -19,7 +19,7 @@ public class PlayerIdleState : StateMachineBehaviour
 
     public override void OnStateExit(UnityEngine.Animator animator, UnityEngine.AnimatorStateInfo stateInfo, int layerIndex)
     {
-        controller.OnTrigger2DStay -= OnPlayerTrigger2DEnter;
+        //controller.OnTrigger2DStay -= OnPlayerTrigger2DEnter;
 
         animator.SetBool("Idle", false);
     }
@@ -29,18 +29,18 @@ public class PlayerIdleState : StateMachineBehaviour
         if (info.tag == "EnemyUnit")
         {
             // If too close
-            if (Vector3.Distance(info.transform.position, controller.moveToPos) < .01f)
-            {
-                // Attack
-                ani.SetBool("Attack", true);
-            }
-            else
-            {
-                Debug.Log("Enemy unit detected!");
+            //if (Vector3.Distance(info.transform.position, controller.moveToPos) < .01f)
+            //{
+            //    // Attack
+            //    ani.SetBool("Attack", true);
+            //}
+            //else
+            //{
+            //    Debug.Log("Enemy unit detected!");
 
-                controller.moveToPos = info.transform.position;
-                ani.SetBool("Chase", true);
-            }
+            //    controller.moveToPos = info.transform.position;
+            //    ani.SetBool("Chase", true);
+            //}
         }
     }
 }

@@ -4,13 +4,12 @@
 class Entity : ScriptableObject
 {
     [Header("Attributes")]
+    public AnimationCurve curve;
     public Sprite sprite;
-    public float movementSpeed;
+    public float arrivingDistance;
+    public float maxSpeed;
+    public float maxForce;
     public float attackRate;
     public float attackDamage;
-    public float MaxHealth;
-
-    [Header("SFX")]
-    public float rotationAmount;
-    public AnimationCurve curve;
+    public float maxHealth;
 }

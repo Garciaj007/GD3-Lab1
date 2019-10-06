@@ -12,7 +12,7 @@ class EntityComponent : MonoBehaviour {
     private void Awake() {
         name = entity.name;
         healthComponent = GetComponent<HealthComponent>();
-        healthComponent.SetMaxHealth(entity.MaxHealth);
+        healthComponent.SetMaxHealth(entity.maxHealth);
     }
 
     private void Update() {

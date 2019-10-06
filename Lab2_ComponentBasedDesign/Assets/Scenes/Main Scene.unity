@@ -191,5 +191,30 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 57331456943553981, guid: f47e829db0e38294c859843e5ef89876,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693024139400600876, guid: f47e829db0e38294c859843e5ef89876,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693024139400600876, guid: f47e829db0e38294c859843e5ef89876,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693024139400600876, guid: f47e829db0e38294c859843e5ef89876,
+        type: 3}
+      propertyPath: m_UseAutoMass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693024139400600876, guid: f47e829db0e38294c859843e5ef89876,
+        type: 3}
+      propertyPath: m_Mass
+      value: 2.3776412
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f47e829db0e38294c859843e5ef89876, type: 3}

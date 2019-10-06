@@ -35,8 +35,8 @@ public class PlayerMovementState : StateMachineBehaviour
         }
 
         // Movement
-        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, point, playerEntity.movementSpeed * Time.deltaTime);
-        gameObject.transform.rotation =
-            Quaternion.Slerp(gameObject.transform.rotation, rot, Time.deltaTime * playerEntity.rotationAmount);
+        gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, point, playerEntity.maxSpeed * Time.deltaTime);
+        //gameObject.transform.rotation =
+        //    Quaternion.Slerp(gameObject.transform.rotation, rot, Time.deltaTime * playerEntity.rotationAmount);
     }
 }

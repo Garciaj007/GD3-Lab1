@@ -6,16 +6,17 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour {
 
     [SerializeField] private Slider healthBar;
-    private GameManager gameManager;
 
-    // Start is called before the first frame update
-    private void Start() {
-        gameManager = GetComponent<GameManager>();
+    public UIManager Instance { get; set; }
+
+    private void Awake() {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);
+        Instance = this;
     }
 
-    // Update is called once per frame
     private void Update() {
-        GameObject selected = gameManager.getCurrentSelected();
+        GameObject selected = GameManager.Instance.CurrentSelected;
         if (selected) healthBar.value = selected.GetComponent<HealthComponent>().GetHealthPercent();
     }
 }

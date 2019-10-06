@@ -332,7 +332,6 @@ GameObject:
   m_Component:
   - component: {fileID: 710378054}
   - component: {fileID: 710378053}
-  - component: {fileID: 710378055}
   - component: {fileID: 710378057}
   - component: {fileID: 710378056}
   m_Layer: 0
@@ -405,22 +404,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &710378055
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710378052}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 3
 --- !u!114 &710378056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -433,8 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788d72eba8cd0bb4c844e44513bb93a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
-  AttackCoolDown: 3
 --- !u!95 &710378057
 Animator:
   serializedVersion: 3

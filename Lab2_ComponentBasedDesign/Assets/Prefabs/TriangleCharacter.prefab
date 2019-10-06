@@ -16,8 +16,10 @@ GameObject:
   - component: {fileID: 7389508016124008311}
   - component: {fileID: 2160990142124870705}
   - component: {fileID: 8304214164759235599}
+  - component: {fileID: 3229578039498271845}
+  - component: {fileID: 4179965301684951003}
   m_Layer: 0
-  m_Name: Player
+  m_Name: TriangleCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +128,7 @@ Animator:
   m_GameObject: {fileID: 4785713996083689286}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5ef18eede7f5bb84a94000271d9461ad, type: 2}
+  m_Controller: {fileID: 9100000, guid: b485ffb609b6a4c47ace0fe944ebd198, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -186,3 +188,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa2ad940f747eb644a005151b9f3f8ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3229578039498271845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785713996083689286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da07eef6b79f0964ab1784d58b36bd12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!50 &4179965301684951003
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4785713996083689286}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0

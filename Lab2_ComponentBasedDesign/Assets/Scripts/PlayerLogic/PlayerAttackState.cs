@@ -11,7 +11,6 @@ public class PlayerAttackState : StateMachineBehaviour
     public override void OnStateEnter(UnityEngine.Animator animator, UnityEngine.AnimatorStateInfo stateInfo, int layerIndex)
     {
         controller = animator.gameObject.GetComponent<PlayerController>();
-        controller.Attack();
 
         timer = 0;
     }
@@ -20,10 +19,10 @@ public class PlayerAttackState : StateMachineBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer > controller.AttackCoolDown)
-        {
-            animator.SetBool("Idle", true);
-        }
+        //if (timer > controller.AttackCoolDown)
+        //{
+        //    animator.SetBool("Idle", true);
+        //}
     }
 
     public override void OnStateExit(UnityEngine.Animator animator, UnityEngine.AnimatorStateInfo stateInfo, int layerIndex)
