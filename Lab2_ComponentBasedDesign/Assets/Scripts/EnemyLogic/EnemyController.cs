@@ -3,9 +3,9 @@ public class EnemyController : MonoBehaviour
 {
     private static int _enemyId = 0;
 
-    public static float wanderRadius = 8.0f;
-    public static float desiredSeparation = 2.0f;
-    public static float neighborDistance = 4.0f;
+    public static float wanderRadius = 4.0f;
+    public static float desiredSeparation = 1.0f;
+    public static float neighborDistance = 2.0f;
     public static int EnemyId => ++_enemyId;
     public int Id { get; private set; }
 
