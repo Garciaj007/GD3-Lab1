@@ -4,54 +4,41 @@
 public class Shape : MonoBehaviour
 {
     [SerializeField] protected Mesh mesh = null;
-    [SerializeField] protected Vector3[] verticies = null;
-    [SerializeField] protected int[] indicies = null;
+    [SerializeField] protected Vector3[] vertices = null;
+    [SerializeField] protected int[] indices = null;
 
     protected PolygonCollider2D polyCollider = null;
 
-    public int VertexCount
-    {
-        get
-        {
-            return indicies.Length;
-        }
-    }
+    public int VertexCount => indices.Length;
 
-    public Vector3[] Verticies
+    public Vector3[] Vertices
     {
-        get
-        {
-            return verticies;
-        }
-
-        set
-        {
-            verticies = value;
-        }
+        get => vertices;
+        set => vertices = value;
     }
 
     protected void Awake()
     {
-        if (indicies == null) return;
+        if (indices == null) return;
 
         mesh = new Mesh();
-        verticies = new Vector3[3];
+        vertices = new Vector3[3];
         GetComponent<MeshFilter>().mesh = mesh;
         polyCollider = GetComponent<PolygonCollider2D>();
     }
 
     protected void Start()
     {
-        if (indicies == null) return;
+        if (indices == null) return;
 
-        PopulateVerticies();
+        PopulateVertices();
         UpdateMesh();
         UpdateCollisionPath();
     }
 
     protected void LateUpdate()
     {
-        if (indicies == null) return;
+        if (indices == null) return;
         UpdateMesh();
         UpdateCollisionPath();
     }
@@ -59,8 +46,8 @@ public class Shape : MonoBehaviour
     protected void UpdateMesh()
     {
         mesh.Clear();
-        mesh.vertices = verticies;
-        mesh.triangles = indicies;
+        mesh.vertices = vertices;
+        mesh.triangles = indices;
         mesh.RecalculateNormals();
     }
 
@@ -69,16 +56,16 @@ public class Shape : MonoBehaviour
         var points = new Vector2[VertexCount];
         for (var i = 0; i < VertexCount; i++)
         {
-            points[i] = verticies[i];
+            points[i] = vertices[i];
         }
         polyCollider.SetPath(0, points);
     }
 
-    protected void PopulateVerticies()
+    protected void PopulateVertices()
     {
-        for (int v = 0; v < indicies.Length; v++)
+        for (int v = 0; v < indices.Length; v++)
         {
-            verticies[v] = GenerateUnitVector();
+            vertices[v] = GenerateUnitVector();
         }
     }
 
@@ -87,4 +74,3 @@ public class Shape : MonoBehaviour
         return new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
     }
 }
-

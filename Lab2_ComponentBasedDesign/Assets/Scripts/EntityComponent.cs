@@ -7,15 +7,11 @@ class EntityComponent : MonoBehaviour {
 
     private HealthComponent healthComponent = null;
 
-    public Entity Entity { get { return entity; } }
+    public Entity Entity => entity;
 
     private void Awake() {
         name = entity.name;
         healthComponent = GetComponent<HealthComponent>();
         healthComponent.SetMaxHealth(entity.maxHealth);
-    }
-
-    private void Update() {
-
     }
 }

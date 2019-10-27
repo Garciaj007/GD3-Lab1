@@ -7,11 +7,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0f;
-            NewPositionClick?.Invoke(mousePosition);
-        }
+        if (!Input.GetMouseButtonDown(0)) return;
+        var mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0f;
+        NewPositionClick?.Invoke(mousePosition);
     }
 }

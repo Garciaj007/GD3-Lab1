@@ -5,7 +5,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private GameObject currentSelected = null;
 
     public static GameManager Instance { get; set; }
-    public GameObject CurrentSelected { get => currentSelected; }
+
+    public GameObject CurrentSelected => currentSelected;
 
     private void Awake()
     {

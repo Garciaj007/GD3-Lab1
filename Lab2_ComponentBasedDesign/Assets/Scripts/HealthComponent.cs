@@ -3,18 +3,16 @@
 public class HealthComponent : MonoBehaviour 
 {
     public delegate void OnDeathDelegate();
-    public static event OnDeathDelegate deathDelegate;
+    public event OnDeathDelegate DeathDelegate;
 
     [SerializeField] private float health = 0f;
     [SerializeField] private float maxHealth = 1f;
-    
+
     private void Update()
     {
-        if (health <= 0f && deathDelegate != null)
-        {
-            health = 0f;
-            deathDelegate();
-        }
+        if (!(health <= 0f) || DeathDelegate == null) return;
+        health = 0f;
+        DeathDelegate();
     }
 
     public void Damage(float amount) => health -= amount;
@@ -24,7 +22,6 @@ public class HealthComponent : MonoBehaviour
         var newHeath = health + amount;
         health = newHeath > maxHealth ? maxHealth : newHeath;
     }
-
 
     public float GetHealthPercent() { return health / maxHealth; }
     public float GetHealth() { return health; }

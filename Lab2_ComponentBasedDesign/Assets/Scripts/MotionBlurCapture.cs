@@ -7,13 +7,8 @@ public class MotionBlurCapture : MonoBehaviour
     private void Awake()
     {
         renderCamera = GetComponent<Camera>();
-    }
-
-    private void Start()
-    {
         renderCamera.targetTexture.width = Screen.width;
         renderCamera.targetTexture.height = Screen.height;
-
         renderCamera.orthographicSize = renderCamera.orthographicSize;
     }
 }

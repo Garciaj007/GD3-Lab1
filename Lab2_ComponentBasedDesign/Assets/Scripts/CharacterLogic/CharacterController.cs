@@ -2,10 +2,11 @@
 
 public class CharacterController : MonoBehaviour
 {
+    public static float ClickMinRadius = 2.0f;
+
     [SerializeField] private PlayerController player;
 
     private Animator anim = null;
-
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -19,10 +20,9 @@ public class CharacterController : MonoBehaviour
 
     void HandleNewPositionClick (Vector3 mousePos)
     {
-        if (GameManager.Instance.CurrentSelected == gameObject)
-        {
-            anim.GetBehaviour<CharacterMoveStateBehaviour>().NewPosition = mousePos;
-            anim.SetBool("Moving", true);
-        }
+        if (GameManager.Instance.CurrentSelected != gameObject) return;
+        if ((mousePos.XY() - gameObject.transform.position.XY()).magnitude < ClickMinRadius) return;
+        anim.GetBehaviour<CharacterMoveStateBehaviour>().NewPosition = mousePos;
+        anim.SetBool("Moving", true);
     }
 }

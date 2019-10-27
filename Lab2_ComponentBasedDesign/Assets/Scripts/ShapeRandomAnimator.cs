@@ -20,7 +20,7 @@ public class ShapeRandomAnimator : MonoBehaviour
 
         for(int i = 0; i < shape.VertexCount; i++)
         {
-            shape.Verticies[i] = GetNextVertexPosition(i);
+            shape.Vertices[i] = GetNextVertexPosition(i);
         }
     }
 

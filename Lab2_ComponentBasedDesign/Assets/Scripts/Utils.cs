@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
+
 public static class Utils
 {
     public static class TimeFormat
     {
         public static string FormatTime(float time)
         {
-            int minutes = (int)time / 60;
-            int seconds = (int)time - 60 * minutes;
-            int millis = (int)(1000 * (time - minutes * 60 - seconds));
-            return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, millis);
+            var minutes = (int)time / 60;
+            var seconds = (int)time - 60 * minutes;
+            var millis = (int)(1000 * (time - minutes * 60 - seconds));
+            return $"{minutes:00}:{seconds:00}:{millis:00}";
         }
     }
 
@@ -27,4 +28,9 @@ public static class Utils
             return (value - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
         }
     }
+}
+public static class VectorExtensions
+{
+    public static Vector2 XY(this Vector3 v)
+    { return new Vector2(v.x, v.y); }
 }
