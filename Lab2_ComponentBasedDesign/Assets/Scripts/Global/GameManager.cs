@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
 
@@ -6,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager Instance { get; set; }
 
+    public List<PlayerController> Players { get; set; } = new List<PlayerController>();
     public GameObject CurrentSelected => currentSelected;
 
     private void Awake()
@@ -15,7 +17,8 @@ public class GameManager : MonoBehaviour {
         Instance = this;
     }
 
-    private void Start() {
+    private void Start()
+    {
         EntityClickController.OnCharacterClick += ChangeCurrentSelected;
     }
 

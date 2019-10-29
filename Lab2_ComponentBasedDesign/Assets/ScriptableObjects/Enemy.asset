@@ -20,8 +20,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   sprite: {fileID: 21300000, guid: c33a982064d32f34fac73864e714f53e, type: 3}
   arrivingDistance: 10
-  maxSpeed: 400
-  maxForce: 2
+  maxSpeed: 10
+  maxForce: 1
   attackRate: 1
   attackDamage: 1
   maxHealth: 10
