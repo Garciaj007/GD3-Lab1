@@ -1,36 +1,34 @@
 ﻿using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
-    private static int _enemyId = 0;
+    public static float wanderRadius = 1.0f;
 
-    public static float wanderRadius = 2.0f;
-    public static float desiredSeparation = 0.1f;
-    public static float neighborDistance = 0.2f;
-    public static int EnemyId => ++_enemyId;
+    private static int targetId = 0;
+    public static int TargetId => ++targetId;
     public int Id { get; private set; }
 
     private Animator animator;
 
-    public EnemyGroup group = null;
+    public EnemyGroup group;
+
     private void Awake()
     {
-        Id = EnemyId;
+        Id = TargetId;
         @group = transform.parent.GetComponent<EnemyGroup>();
-        @group.Add(Id, transform.position);
+        @group.Add(Id, transform.parent.position.XY() + Random.insideUnitCircle.normalized * wanderRadius);
         GetComponent<HealthComponent>().DeathDelegate += KillEnemy;
         animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        float playerDistance = 10000.0f;
+        var playerDistance = 10000.0f;
+
         foreach(var playerController in GameManager.Instance.Players)
         {
             var distance = (playerController.transform.position - transform.position).magnitude;
             playerDistance = distance < playerDistance ? distance : playerDistance;
         }
-
-        Debug.Log(playerDistance);
 
         animator.SetFloat("PlayerDistance", playerDistance);
     }
