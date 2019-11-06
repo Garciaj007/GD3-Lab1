@@ -19,7 +19,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   sprite: {fileID: 21300000, guid: c33a982064d32f34fac73864e714f53e, type: 3}
-  arrivingDistance: 10
+  arrivingDistance: 0.1
   maxSpeed: 2
   maxForce: 1
   attackRate: 1

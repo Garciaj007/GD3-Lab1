@@ -1,14 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
-using Vector3 = UnityEngine.Vector3;
+﻿using UnityEngine;
 
 public class EnemyIdleBehaviour : StateMachineBehaviour
 {
-    public static float arrivingDistance = 0.1f;
     public static float arrivingRadius = 0.5f;
 
     private EnemyController enemyAttached;
@@ -30,7 +23,7 @@ public class EnemyIdleBehaviour : StateMachineBehaviour
 
         var angle = Mathf.Atan2(rigid.velocity.y, rigid.velocity.x) * Mathf.Rad2Deg;
         var q = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
-        animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, q, Time.deltaTime * entity.maxSpeed);
+        animator.transform.rotation = Quaternion.Slerp(animator.transform.rotation, q, Time.deltaTime * entity.maxForce);
     }
 
     private void Seek(ref Vector2 target)
@@ -38,12 +31,12 @@ public class EnemyIdleBehaviour : StateMachineBehaviour
         var desired = target - rigid.position;
         var distance = desired.magnitude;
 
-        if (distance < arrivingDistance)
+        if (distance < entity.arrivingDistance)
         {
             for (var i = 0; i < 10; i++)
             {
-                target = rigid.transform.parent.position.XY() + (Random.insideUnitCircle.normalized * EnemyController.wanderRadius);
-                if ((target - rigid.position).magnitude > arrivingDistance) return;
+                target = rigid.transform.parent.position.XY() + (Random.insideUnitCircle.normalized * EnemyController.wanderRadius * BeatScalar.Instance.Scalar);
+                if ((target - rigid.position).magnitude > entity.arrivingDistance) return;
             }
         }
 
