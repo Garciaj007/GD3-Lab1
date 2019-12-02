@@ -11,17 +11,22 @@ public class RapidBulletSpawner : AObjectSpawner
         bulletTimer.TimerFinished += Spawn;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
             bulletTimer.Start();
 
-        if(Input.GetMouseButtonUp(1))
+        if(Input.GetMouseButtonUp(0))
             bulletTimer.Stop();
+        
+        if(Input.GetMouseButton(0))
+            bulletTimer.Update();
     }
 
     protected override void Spawn()
     {
-        throw new System.NotImplementedException();
+        var rand = Random.insideUnitCircle;
+        var pos = new Vector3(rand.x, rand.y, 0.0f);
+        objectPool.SpawnFromPool("RapidBullet", pos, Quaternion.identity);
     }
 }

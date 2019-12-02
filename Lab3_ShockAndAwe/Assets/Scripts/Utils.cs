@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class Utils
+namespace Utils
 {
     public static class TimeFormat
     {

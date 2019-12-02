@@ -5,7 +5,7 @@ public abstract class AObjectSpawner : MonoBehaviour
     protected ObjectPool objectPool = null;
     protected new string name;
 
-    private void Start()
+    private void Awake()
     {
         objectPool = ObjectPool.Instance;    
     }

@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPoolObjectCullingBehaviour : MonoBehaviour
+public class CullingBoundriesBehaviour : MonoBehaviour
 {
     GameManager gm;
 
-    private void Start()
-    {
-        gm = GameManager.Instance;
-    }
+    private void Start() => gm = GameManager.Instance;
 
     private void FixedUpdate()
     {
         if(transform.position.z < gm.CullAndDepth.x || transform.position.z > gm.CullAndDepth.y)
-            gameObject.SetActive(false);
+            GetComponent<IPooledObject>()?.OnObjectHide();
     }
 }
