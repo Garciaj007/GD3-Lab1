@@ -49,6 +49,7 @@ public class ObjectPool : MonoBehaviour
 
         var spawnObj = poolDictionary[name].Dequeue();
 
+        spawnObj.GetComponent<IPooledObject>()?.OnObjectHide();
         spawnObj.SetActive(true);
         spawnObj.transform.position = position;
         spawnObj.transform.rotation = rotation;

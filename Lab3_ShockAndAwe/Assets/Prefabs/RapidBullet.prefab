@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 7138797423519359057}
   - component: {fileID: 7138797423519359151}
   - component: {fileID: 7138797423519359061}
-  - component: {fileID: 211046277}
   - component: {fileID: 4299945024388233417}
+  - component: {fileID: 211046277}
   m_Layer: 0
   m_Name: RapidBullet
   m_TagString: Untagged
@@ -178,7 +178,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.42921996, g: 0.042452812, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 0}
+      key1: {r: 0.45789814, g: 0, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -213,18 +213,6 @@ TrailRenderer:
   m_MinVertexDistance: 1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &211046277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7138797423519359148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06657678b28c2c84ba172ab0c20b0d02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4299945024388233417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,3 +226,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 10
+--- !u!114 &211046277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7138797423519359148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06657678b28c2c84ba172ab0c20b0d02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

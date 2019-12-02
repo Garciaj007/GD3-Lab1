@@ -2,6 +2,6 @@
 
 public class HidePooledObject : MonoBehaviour, IPooledObject
 {
-    public void OnObjectHide() => gameObject.SetActive(false);
+    public void OnObjectHide() { Debug.Log("Hide Object Called:", this); gameObject.SetActive(false); }
     public void OnObjectSpawned() { }
 }

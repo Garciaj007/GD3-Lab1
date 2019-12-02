@@ -25,8 +25,11 @@ public class RapidBulletSpawner : AObjectSpawner
 
     protected override void Spawn()
     {
-        var rand = Random.insideUnitCircle;
-        var pos = new Vector3(rand.x, rand.y, 0.0f);
+        var pos = Input.mousePosition;
+        pos.z = 1;
+        pos = Camera.main.ScreenToWorldPoint(pos);
+        //var rand = Random.insideUnitCircle;
+        //var pos = new Vector3(rand.x, rand.y, 0.0f);
         objectPool.SpawnFromPool("RapidBullet", pos, Quaternion.identity);
     }
 }
