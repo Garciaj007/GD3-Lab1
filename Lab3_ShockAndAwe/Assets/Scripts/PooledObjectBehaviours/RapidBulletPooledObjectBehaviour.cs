@@ -9,6 +9,6 @@ public class RapidBulletPooledObjectBehaviour : MonoBehaviour, IPooledObject
     [SerializeField] private float bulletSpeed = 10.0f;
     public void Update()
     {
-        transform.position += new Vector3(0, 0, bulletSpeed * Time.deltaTime);
+        transform.position += transform.forward * bulletSpeed * Time.deltaTime;
     }
 }
