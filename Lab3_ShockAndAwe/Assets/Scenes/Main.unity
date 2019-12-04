@@ -445,7 +445,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051844836}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
@@ -527,8 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69de2cb56d1ba44dac8c6bb5e8108ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetHitColor: {r: 0, g: 0.61960787, b: 1, a: 0}
-  hitTargets: []
 --- !u!1 &1429297547
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,6 +847,10 @@ MonoBehaviour:
     prefab: {fileID: 7138797423519359148, guid: 21f042d643184e74c91bcb659ff8911a,
       type: 3}
     size: 50
+  - name: HitscanBullet
+    prefab: {fileID: 8950513544007089029, guid: b4cae4c839f59be4dbfb6297bd446602,
+      type: 3}
+    size: 32
 --- !u!114 &1978837014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,9 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97f156413997c504390af918becb2aec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cullAndDepth: {x: -10, y: 200}
-  targetSpeed: 10
-  incrementSpeed: 0.1
+  cullAndDepth: {x: -100, y: 205}
+  targetSpeed: 5
+  incrementSpeed: 1
 --- !u!4 &1978837015
 Transform:
   m_ObjectHideFlags: 0
@@ -904,7 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b11f6dc173ea542be7a365aeecd056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 10, y: 5}
+  dimensions: {x: 15, y: 10}
   targets:
   - name: TargetA
     minSpawnCount: 1
@@ -921,6 +923,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a057f794138dfdf47baddeb756f15e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetHitColor: {r: 0, g: 0.38835526, b: 1, a: 1}
+  maxRaycastDistance: 200
+  hitTargets: []
 --- !u!114 &1978837019
 MonoBehaviour:
   m_ObjectHideFlags: 0

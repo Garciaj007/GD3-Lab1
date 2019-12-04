@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6064681537110253145}
   - component: {fileID: 1867875727330554164}
   - component: {fileID: 6390545016863140559}
-  - component: {fileID: 609509773}
   - component: {fileID: -1068651134748481095}
-  - component: {fileID: 383704569383406017}
+  - component: {fileID: 4796325816820191835}
+  - component: {fileID: 1424555516238989179}
   m_Layer: 0
   m_Name: TargetA
   m_TagString: Target
@@ -93,20 +93,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 4, y: 4, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &609509773
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1420061250948349208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 266289efd3d635f48a4c738cd160343d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1068651134748481095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20d81ac3e964be45992fa2e41fe2ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &383704569383406017
+--- !u!114 &4796325816820191835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,6 +116,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420061250948349208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06657678b28c2c84ba172ab0c20b0d02, type: 3}
+  m_Script: {fileID: 11500000, guid: fb453ef1bdc77ed43b3750e787bc351e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1424555516238989179
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420061250948349208}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

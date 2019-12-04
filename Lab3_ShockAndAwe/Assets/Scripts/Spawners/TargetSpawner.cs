@@ -16,7 +16,7 @@ public class TargetSpawner : AObjectSpawner
 
     private int count = 0;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (BeatSequencer.Instance.BeatFull)
         {

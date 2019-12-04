@@ -8,7 +8,7 @@ public class CullingBoundriesBehaviour : MonoBehaviour
 
     private void Start() => gm = GameManager.Instance;
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(transform.position.z < gm.CullAndDepth.x || transform.position.z > gm.CullAndDepth.y)
             GetComponent<IPooledObject>()?.OnObjectHide();
