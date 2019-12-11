@@ -18,7 +18,16 @@ MonoBehaviour:
     value: 1
   power:
     overrideState: 1
-    value: -1.54
+    value: 4.51
+  intensity:
+    overrideState: 1
+    value: 0.54
+  blend:
+    overrideState: 1
+    value: 0.47
+  brightness:
+    overrideState: 1
+    value: 0.57
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,13 +55,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eca0a1c85a8b9646a2674cd875de61a, type: 3}
   m_Name: DrunkImageShader
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   power:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 10
   direction:
-    overrideState: 0
+    overrideState: 1
     value: {x: 1, y: 0}
