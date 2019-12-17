@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d715e14f9c73ee043a0037f899b6dda6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0.08
+  amount: 0.01
   isJush: 1
 --- !u!1001 &5235488721559653524
 PrefabInstance:

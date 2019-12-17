@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnablePowerUpBehaviour : MonoBehaviour
 {
-    [SerializeField] private float amount;
+    [SerializeField] private float amount = 0;
     [SerializeField] private bool isJush = false;
 
     private void Start() => MouseEventHandlerManager.mouseDownEvent += PowerUpUpdate;

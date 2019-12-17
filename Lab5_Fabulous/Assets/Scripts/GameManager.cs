@@ -5,7 +5,8 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private PostProcessProfile profile;
+    [SerializeField] private PostProcessProfile profile = null;
+    [SerializeField] private ParticleSystem system;
     [Header("UI Components")]
     [SerializeField] private Text tipsText = null;
     [SerializeField] private Text likesText = null;
@@ -51,9 +52,7 @@ public class GameManager : MonoBehaviour
         IncapacitatedMultiplier = 1.0f;
 
         tips = 0.0f;
-        likes = 0;
         entityIndex = 0;
-        nightIndex = 0;
 
         high.power.value = 0;
         high.intensity.value = 0;
@@ -146,7 +145,8 @@ public class GameManager : MonoBehaviour
     {
         likes += e.LikesAddedWhenDead;
 
-        //Spawn Likes Animation & Tips Animation
+        if (system.IsAlive()) system.Clear();
+        system.Play();
 
         RefreshInGameUIText();
         Destroy(e.gameObject);
