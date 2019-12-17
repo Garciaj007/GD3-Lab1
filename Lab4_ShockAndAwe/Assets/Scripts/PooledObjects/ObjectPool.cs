@@ -1,5 +1,37 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+
+[CustomPropertyDrawer(typeof(ObjectPool.PoolData))]
+public class PoolDataDrawer : PropertyDrawer
+{
+    public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+    {
+        //return base.GetPropertyHeight(property, label);
+        return EditorGUIUtility.singleLineHeight;
+    }
+
+    public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+    {
+        //base.OnGUI(position, property, label);
+        //var propertyRect = new Rect(position.x, position.y, position.width, position.height * 2);
+
+        EditorGUI.BeginProperty(position, label, property);
+        int indent = EditorGUI.indentLevel;
+        EditorGUI.indentLevel = 0;
+
+        Rect nameRect = new Rect(position.x, position.y, position.width / 3, position.height);
+        Rect sizeRect = new Rect(position.x + position.width / 3, position.y, position.width / 4, position.height);
+        Rect prefabRect = new Rect(position.x + position.width / 3 + position.width / 4, position.y, position.width / 3, position.height);
+
+        EditorGUI.PropertyField(nameRect, property.FindPropertyRelative("name"), GUIContent.none);
+        EditorGUI.PropertyField(sizeRect, property.FindPropertyRelative("size"), GUIContent.none);
+        EditorGUI.PropertyField(prefabRect, property.FindPropertyRelative("prefab"), GUIContent.none);
+
+        EditorGUI.indentLevel = indent;
+        EditorGUI.EndProperty();
+    }
+}
 
 public class ObjectPool : MonoBehaviour
 {

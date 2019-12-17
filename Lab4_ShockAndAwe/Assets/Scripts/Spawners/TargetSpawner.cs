@@ -1,5 +1,61 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using UnityEditorInternal;
+
+[CustomEditor(typeof(TargetSpawner))]
+public class TargetSpawnerEditor : Editor
+{
+    private TargetSpawner targetSpawner;
+
+    private ReorderableList targetDataList;
+
+    private void OnEnable()
+    {
+        targetSpawner = (TargetSpawner)target;
+
+        //if (targetDataList == null)
+        //    targetDataList = new ReorderableList(serializedObject,, true, true, true, true);
+        //targetDataList.drawHeaderCallback += DrawNameHeader;
+        //targetDataList.drawElementCallback += DrawNameElement;
+        //targetDataList.onAddCallback += AddNameElement;
+        //targetDataList.onRemoveCallback += RemoveNameElement;
+    }
+
+    private void OnDisable()
+    {
+        
+    }
+
+    #region Headers
+    private void DrawHeader(Rect r, string l) => GUI.Label(r, l);
+    private void DrawNameHeader(Rect r) => DrawHeader(r, "Name");
+    private void DrawMinHeader(Rect r) => DrawHeader(r, "Min Spawn Count");
+    private void DrawMaxHeader(Rect r) => DrawHeader(r, "MAx Spawn Count");
+    #endregion
+
+    #region Elements
+    private void DrawNameElement(Rect r, int index, bool active, bool focused)
+    {
+        return; 
+    }
+    #endregion
+
+    #region Add Elements
+
+    #endregion
+
+    #region Remove Element
+
+    #endregion
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+        targetDataList.DoLayoutList();
+    }
+}
 
 public class TargetSpawner : AObjectSpawner
 {
