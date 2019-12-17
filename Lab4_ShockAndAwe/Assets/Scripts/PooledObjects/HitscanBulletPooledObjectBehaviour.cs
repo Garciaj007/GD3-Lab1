@@ -4,6 +4,7 @@ public class HitscanBulletPooledObjectBehaviour : MonoBehaviour, IPooledObject
 {
     public GameObject Target { get; set; }
 
+    [SerializeField] private AudioClip clip = null; 
     [SerializeField] private float bulletMaxSpeed = 10.0f;
 
     public void OnObjectHide()
@@ -24,6 +25,7 @@ public class HitscanBulletPooledObjectBehaviour : MonoBehaviour, IPooledObject
     public void OnObjectSpawned()
     {
         GetComponent<TrailRenderer>().Clear();
+        GetComponent<AudioSource>().PlayOneShot(clip);
     }
 
     private void Update()

@@ -15,7 +15,14 @@ public class HitScanBulletSpawner : AObjectSpawner
 
     private void Update()
     {
-        if (Input.GetMouseButtonUp(1))
+        //if (Input.GetMouseButtonUp(1))
+        //{
+        //    Spawn();
+        //    count = 0;
+        //    hitTargets.Clear();
+        //}
+        
+        if (BeatSequencer.Instance.BeatFull)
         {
             Spawn();
             count = 0;

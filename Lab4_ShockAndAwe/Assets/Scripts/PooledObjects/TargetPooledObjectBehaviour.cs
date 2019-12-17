@@ -2,12 +2,19 @@
 
 public class TargetPooledObjectBehaviour : MonoBehaviour, IPooledObject
 {
-    public void OnObjectHide(){gameObject.SetActive(false);}
+    private Color spawnColor = Color.white;
 
-    public void OnObjectSpawned(){}
+    public void OnObjectHide(){ gameObject.SetActive(false); }
+
+    public void OnObjectSpawned(){ GetComponent<MeshRenderer>().material.color = spawnColor; }
+
+    private void Start()
+    {
+        spawnColor = GetComponent<MeshRenderer>().material.color;
+    }
 
     private void Update()
     {
-        transform.position += new Vector3(0, 0, -GameManager.Instance.TargetSpeed * Time.deltaTime);
+        transform.position += new Vector3(0, 0, -GameManager.Instance.TargetSpeed * Time.deltaTime * BeatScalar.Instance.Scalar);
     }
 }

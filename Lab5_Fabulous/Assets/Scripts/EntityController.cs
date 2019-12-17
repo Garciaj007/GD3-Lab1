@@ -4,19 +4,29 @@ using UnityEngine;
 
 public class EntityController : MonoBehaviour
 {
-    private bool isActive = false;
+    [SerializeField] private float startingHp = 10.0f;
+    [SerializeField] private int likesAddedWhenDead = 10;
 
-    public EntityScriptableObject Entity{ get; private set; }
+    private float hp = Mathf.Infinity;
+    
+    public int LikesAddedWhenDead { get => likesAddedWhenDead; }
+    public float HP { get => hp / startingHp; }
 
-    public void Create(EntityScriptableObject entity)
+    private void Start()
     {
-        this.Entity = entity;
-        isActive = true;
+        startingHp *= GameManager.I.Difficulty;
+        hp = startingHp;
+        MouseEventHandlerManager.mouseDownEvent += DecrementHp;
     }
 
-    void Update()
+    private void Update()
     {
-        if(!isActive) return;
-        if(Entity.hp < 0) GameManager.I.DestroyEntity(this);
+        if(hp < 0) GameManager.I.DestroyEntity(this);
     }
-}
+
+    private void DecrementHp()
+    { 
+        hp -= GameManager.I.Damage;
+        GameManager.I.RefreshEntityUI(this);
+    }
+}   

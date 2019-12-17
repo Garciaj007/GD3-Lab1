@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4796325816820191835}
   - component: {fileID: 1424555516238989179}
   m_Layer: 0
-  m_Name: TargetA
+  m_Name: TargetB
   m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +176,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8645309872650289063}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: ec6dbfd5ba30d9d4dba08c31d3a0b1d3, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: ad67b60b68c0e5d4ebebd8685800e595, type: 3}
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_PropertySheet:
@@ -222,7 +222,6 @@ VFXRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

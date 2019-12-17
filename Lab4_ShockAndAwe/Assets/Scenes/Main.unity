@@ -812,6 +812,7 @@ GameObject:
   - component: {fileID: 1978837017}
   - component: {fileID: 1978837019}
   - component: {fileID: 1978837018}
+  - component: {fileID: 1978837020}
   m_Layer: 0
   m_Name: Global
   m_TagString: Untagged
@@ -844,7 +845,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85f7c626562f7d44ea54430f4cce0b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 120
+  bpm: 130
 --- !u!114 &1978837013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,7 +862,7 @@ MonoBehaviour:
   - name: TargetA
     prefab: {fileID: 1420061250948349208, guid: 7b4a0012474bf06499d785ac2316a7ec,
       type: 3}
-    size: 150
+    size: 100
   - name: RapidBullet
     prefab: {fileID: 7138797423519359148, guid: 21f042d643184e74c91bcb659ff8911a,
       type: 3}
@@ -870,6 +871,10 @@ MonoBehaviour:
     prefab: {fileID: 8950513544007089029, guid: b4cae4c839f59be4dbfb6297bd446602,
       type: 3}
     size: 32
+  - name: TargetB
+    prefab: {fileID: 1420061250948349208, guid: 78580a839275c56408f304dc452960be,
+      type: 3}
+    size: 100
 --- !u!114 &1978837014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -884,7 +889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cullAndDepth: {x: -100, y: 205}
   targetSpeed: 5
-  incrementSpeed: 1
+  incrementSpeed: 0.1
 --- !u!4 &1978837015
 Transform:
   m_ObjectHideFlags: 0
@@ -911,7 +916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3df9ac01486fc3e468ed816a71f98b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scaleAmount: 0.25
+  scaleAmount: 1
+  scaleMax: 4
   duration: 10
 --- !u!114 &1978837017
 MonoBehaviour:
@@ -925,9 +931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b11f6dc173ea542be7a365aeecd056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 15, y: 10}
+  dimensions: {x: 30, y: 18}
   targets:
   - name: TargetA
+    minSpawnCount: 1
+    maxSpawnCount: 4
+  - name: TargetB
     minSpawnCount: 1
     maxSpawnCount: 3
 --- !u!114 &1978837018
@@ -958,3 +967,99 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rateOfFire: 0.1
+--- !u!82 &1978837020
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1978837010}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8582bf001533a1e448acb771a407c7cf, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

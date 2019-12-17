@@ -2,11 +2,12 @@
 
 public class RapidBulletPooledObjectBehaviour : MonoBehaviour, IPooledObject
 {
-    [SerializeField] private float bulletSpeed = 10.0f;
 
+    [SerializeField] private float bulletSpeed = 10.0f;
+    [SerializeField] private AudioClip clip = null;
     public void OnObjectHide() { gameObject.SetActive(false); }
 
-    public void OnObjectSpawned() { }
+    public void OnObjectSpawned(){ GetComponent<AudioSource>().PlayOneShot(clip); }
 
     private void OnTriggerEnter(Collider other)
     {

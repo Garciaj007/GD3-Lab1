@@ -3,6 +3,7 @@
 public class BeatScalar : MonoBehaviour
 {
     [SerializeField] private float scaleAmount = 0.5f;
+    [SerializeField] private float scaleMax = 2.0f;
     [SerializeField] private float duration = 10.0f;
     private bool animating = false;
 
@@ -30,9 +31,9 @@ public class BeatScalar : MonoBehaviour
         if (animating)
         {
             Scalar += scaleAmount;
-            if (Scalar >= 1.3f)
+            if (Scalar >= scaleMax)
             {
-                Scalar = 1.3f;
+                Scalar = scaleMax;
                 animating = false;
             }
         }
