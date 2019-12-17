@@ -5,7 +5,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Vector2 dimensions = Vector2.zero;
     [SerializeField] private GameObject enemyGroup = null;
 
-    private Utils.Timer spawnTimer = new Utils.Timer(10.0f);
+    private Utils.Timer spawnTimer = new Utils.Timer(5.0f);
 
     private void Start()
     {

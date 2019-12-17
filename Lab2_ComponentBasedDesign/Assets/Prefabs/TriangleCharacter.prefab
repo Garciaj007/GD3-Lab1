@@ -177,6 +177,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dd72eb0a46b474c8e333033ddbb2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restColor: {r: 0, g: 1, b: 0.8156863, a: 1}
+  hoverColor: {r: 0, g: 0.69019586, b: 0.8, a: 1}
+  downColor: {r: 0, g: 0.28235283, b: 0.4, a: 1}
 --- !u!114 &8304214164759235599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +223,7 @@ Rigidbody2D:
   m_AngularDrag: 1
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
+  m_Interpolate: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0

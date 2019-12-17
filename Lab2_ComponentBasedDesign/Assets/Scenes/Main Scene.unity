@@ -229,6 +229,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1884606233}
+    - target: {fileID: 7845836157860621985, guid: 9efb74b7fd60f1f4194e7a52198234e2,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9efb74b7fd60f1f4194e7a52198234e2, type: 3}
 --- !u!1 &247092275
@@ -319,7 +324,7 @@ GameObject:
   - component: {fileID: 279109748}
   m_Layer: 0
   m_Name: MotionBlurCamera
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -465,6 +470,36 @@ PrefabInstance:
       propertyPath: blackOverlay
       value: 
       objectReference: {fileID: 1172287781}
+    - target: {fileID: 131103575562995897, guid: 87e876bae9374324184f4669d9c6f39d,
+        type: 3}
+      propertyPath: hoverColor.r
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 131103575562995897, guid: 87e876bae9374324184f4669d9c6f39d,
+        type: 3}
+      propertyPath: hoverColor.g
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 131103575562995897, guid: 87e876bae9374324184f4669d9c6f39d,
+        type: 3}
+      propertyPath: hoverColor.b
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 131103575562995897, guid: 87e876bae9374324184f4669d9c6f39d,
+        type: 3}
+      propertyPath: downColor.r
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 131103575562995897, guid: 87e876bae9374324184f4669d9c6f39d,
+        type: 3}
+      propertyPath: downColor.g
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 131103575562995897, guid: 87e876bae9374324184f4669d9c6f39d,
+        type: 3}
+      propertyPath: downColor.b
+      value: 0.8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87e876bae9374324184f4669d9c6f39d, type: 3}
 --- !u!1 &345217113
@@ -517,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.076991014, g: 0.5943396, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -675,7 +710,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 250, y: 20}
+  m_AnchoredPosition: {x: 200, y: 100}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465867418
@@ -1220,6 +1255,7 @@ GameObject:
   - component: {fileID: 990523922}
   - component: {fileID: 990523921}
   - component: {fileID: 990523920}
+  - component: {fileID: 990523923}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1285,7 +1321,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990523919}
-  m_LocalRotation: {x: -0, y: -0, z: 0.008726558, w: 0.999962}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1293,7 +1329,21 @@ Transform:
   - {fileID: 390331385}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &990523923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990523919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3761bd01f7a5e84d96772fccaa684be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraBounds: {x: 20, y: 15}
+  speed: 2
 --- !u!1 &1028514783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1444,6 +1494,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29dd72eb0a46b474c8e333033ddbb2f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  restColor: {r: 1, g: 1, b: 1, a: 1}
+  hoverColor: {r: 1, g: 1, b: 1, a: 1}
+  downColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &1063398450
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1585,6 +1638,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1884606233}
+    - target: {fileID: 7845836157860621985, guid: 9efb74b7fd60f1f4194e7a52198234e2,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9efb74b7fd60f1f4194e7a52198234e2, type: 3}
 --- !u!1 &1100892966
@@ -1983,7 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2165a35da275c7c43b669ceb9c529677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 10, y: 8}
+  dimensions: {x: 20, y: 15}
   enemyGroup: {fileID: 3490912071745678577, guid: 29fc6a25e8c738d4a9ad54f906bf4189,
     type: 3}
 --- !u!1 &1416061080
@@ -2022,7 +2080,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 200, y: 20}
+  m_AnchoredPosition: {x: -200, y: 100}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1416061082
@@ -2250,6 +2308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1671762942}
   - component: {fileID: 1671762943}
+  - component: {fileID: 1671762944}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -2274,7 +2333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1671762943
@@ -2326,9 +2385,48 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671762944}
+        m_MethodName: UpdateSliderColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1983591338}
+        m_MethodName: UpdateSliderColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1671762944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671762941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f468440f9924a4c85a98559a7fb44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 345217115}
+  sr: {fileID: 0}
+  slider: {fileID: 1671762943}
+  colorA: {r: 1, g: 0.13000315, b: 0, a: 1}
+  colorB: {r: 0.3340696, g: 1, b: 0, a: 1}
 --- !u!1 &1703470078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4785713996083689286, guid: ab702d5b20d8d324e80e59a01d541a0e,
@@ -2450,6 +2548,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1884606233}
+    - target: {fileID: 6022577736449407146, guid: 71c6ac1c8f3ddab4ea4165d14ce2db45,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c6ac1c8f3ddab4ea4165d14ce2db45, type: 3}
 --- !u!1 &1959989198
@@ -2488,6 +2591,35 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1983591330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2996721924620917813, guid: 87e876bae9374324184f4669d9c6f39d,
+    type: 3}
+  m_PrefabInstance: {fileID: 329898081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1983591335 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2996721924620917811, guid: 87e876bae9374324184f4669d9c6f39d,
+    type: 3}
+  m_PrefabInstance: {fileID: 329898081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1983591338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983591330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f468440f9924a4c85a98559a7fb44c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  sr: {fileID: 1983591335}
+  slider: {fileID: 1671762943}
+  colorA: {r: 1, g: 0.09962939, b: 0, a: 1}
+  colorB: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &3038363276250760519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2646,6 +2778,21 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1884606233}
+    - target: {fileID: 6109148836458286197, guid: 71c6ac1c8f3ddab4ea4165d14ce2db45,
+        type: 3}
+      propertyPath: restColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6109148836458286197, guid: 71c6ac1c8f3ddab4ea4165d14ce2db45,
+        type: 3}
+      propertyPath: restColor.b
+      value: 0.95686275
+      objectReference: {fileID: 0}
+    - target: {fileID: 6022577736449407146, guid: 71c6ac1c8f3ddab4ea4165d14ce2db45,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c6ac1c8f3ddab4ea4165d14ce2db45, type: 3}
 --- !u!4 &7140704934535966417 stripped
@@ -2801,5 +2948,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1884606233}
+    - target: {fileID: 7845836157860621985, guid: 9efb74b7fd60f1f4194e7a52198234e2,
+        type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9efb74b7fd60f1f4194e7a52198234e2, type: 3}

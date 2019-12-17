@@ -1,36 +1,27 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class EnemyIdleBehaviour : StateMachineBehaviour
+public class EnemyAttackBehaviour : StateMachineBehaviour
 {
     public static float arrivingRadius = 0.5f;
 
     private EnemyController enemyAttached;
     private Entity entity;
     private Rigidbody2D rigid;
-    private Animator anim;
-
-    private Utils.Timer timerTillAttack = new Utils.Timer(4.0f, false);
-
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         enemyAttached = animator.gameObject.GetComponent<EnemyController>();
         rigid = enemyAttached.GetComponent<Rigidbody2D>();
         entity = enemyAttached.GetComponent<EntityComponent>().Entity;
-        anim = animator;
-
-        timerTillAttack.TimerFinished += TimerAttackDone;
-        timerTillAttack.Start();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timerTillAttack.Update();
-
         if (enemyAttached.@group == null) return;
 
-        var target = enemyAttached.@group.Targets[enemyAttached.Id];
+        var target = Vector2.zero;
         Seek(ref target);
-        enemyAttached.@group.Targets[enemyAttached.Id] = target;
 
         var angle = Mathf.Atan2(rigid.velocity.y, rigid.velocity.x) * Mathf.Rad2Deg;
         var q = Quaternion.AngleAxis(angle - 90f, Vector3.forward);
@@ -59,10 +50,5 @@ public class EnemyIdleBehaviour : StateMachineBehaviour
         var steer = desired - rigid.velocity;
         steer = steer.magnitude > entity.maxForce ? steer.normalized * entity.maxForce : steer;
         rigid.AddForce(steer);
-    }
-
-    private void TimerAttackDone()
-    {
-        anim.SetTrigger("Attack");
     }
 }

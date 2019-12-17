@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class ApplyEntitySprite : MonoBehaviour
 {
@@ -6,7 +7,12 @@ public class ApplyEntitySprite : MonoBehaviour
     void Awake()
     {
         GetComponent<SpriteRenderer>().sprite = GetComponent<EntityComponent>().Entity.sprite;
-        if(applyCollider)
-            GetComponent<PolygonCollider2D>().SetPath(0, GetComponent<EntityComponent>().Entity.sprite.vertices);
+
+        if (applyCollider)
+        {
+            var path = new List<Vector2>();
+            GetComponent<SpriteRenderer>().sprite.GetPhysicsShape(0, path);
+            GetComponent<PolygonCollider2D>().SetPath(0, path.ToArray());
+        }
     }
 }
