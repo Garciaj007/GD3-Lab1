@@ -12,16 +12,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cf9e44103db70e4d87c0fdc9eec82c3, type: 3}
   m_Name: Hexagon
   m_EditorClassIdentifier: 
-  name: 
-  sprite: {fileID: 0}
-  movementSpeed: 0
-  attackRate: 0
-  attackDamage: 0
-  MaxHealth: 0
-  rotationAmount: 0
   curve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
-    m_PostInfinity: 2
+    m_PostInfinity: 0
     m_RotationOrder: 4
+  sprite: {fileID: 21300000, guid: 1323fc7ce4ed07e4895a9177c67581f7, type: 3}
+  arrivingDistance: 60
+  maxSpeed: 40
+  maxForce: 1
+  attackRate: 8
+  attackDamage: 8
+  maxHealth: 100

@@ -5,6 +5,7 @@ public class CharacterMoveStateBehaviour : StateMachineBehaviour
 {
     private GameObject characterAttached = null;
     private Rigidbody2D rigid = null;
+    private EntityComponent entityComponent = null;
     private Entity entity = null;
 
     public Vector2 NewPosition { get; set; } = Vector2.zero;
@@ -13,11 +14,14 @@ public class CharacterMoveStateBehaviour : StateMachineBehaviour
     {
         characterAttached = animator.gameObject;
         rigid = characterAttached.GetComponent<Rigidbody2D>();
-        entity = characterAttached.GetComponent<EntityComponent>().Entity;
+        entityComponent = characterAttached.GetComponent<EntityComponent>();
+        entity = entityComponent?.Entity;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if(!entityComponent.CanMove) return;
+
         //Find Desired Vector to Click Point
         var desired = NewPosition - characterAttached.transform.position.XY();
 

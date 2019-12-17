@@ -17,9 +17,12 @@ public class EnemyIdleBehaviour : StateMachineBehaviour
     {
         if (enemyAttached.@group == null) return;
 
-        var target = enemyAttached.@group.Targets[enemyAttached.Id];
+        //var target = enemyAttached.@group.Targets[enemyAttached.Id];
+        //Seek(ref target);
+        //enemyAttached.@group.Targets[enemyAttached.Id] = target;
+
+        var target = Vector2.zero;
         Seek(ref target);
-        enemyAttached.@group.Targets[enemyAttached.Id] = target;
 
         var angle = Mathf.Atan2(rigid.velocity.y, rigid.velocity.x) * Mathf.Rad2Deg;
         var q = Quaternion.AngleAxis(angle - 90f, Vector3.forward);

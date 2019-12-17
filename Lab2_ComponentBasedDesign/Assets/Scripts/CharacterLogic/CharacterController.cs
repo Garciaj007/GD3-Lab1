@@ -6,10 +6,12 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] private PlayerController player;
 
+    private EntityComponent entity = null;
     private Animator anim = null;
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        entity = GetComponent<EntityComponent>();
         player.NewPositionClick += HandleNewPositionClick;
     }
 
@@ -17,6 +19,7 @@ public class CharacterController : MonoBehaviour
     {
         player.NewPositionClick -= HandleNewPositionClick;
     }
+    private void Update() => anim.SetBool("DefenseMode", entity.InDefense);
 
     void HandleNewPositionClick (Vector3 mousePos)
     {
@@ -24,5 +27,13 @@ public class CharacterController : MonoBehaviour
         if ((mousePos.XY() - gameObject.transform.position.XY()).magnitude < ClickMinRadius) return;
         anim.GetBehaviour<CharacterMoveStateBehaviour>().NewPosition = mousePos;
         anim.SetBool("Moving", true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(entity.CanMove) return;
+
+        if(collision.CompareTag("EnemyUnit"))
+            collision.gameObject.GetComponent<HealthComponent>().Damage(entity != null ? entity.Entity.attackDamage : 1.0f);
     }
 }

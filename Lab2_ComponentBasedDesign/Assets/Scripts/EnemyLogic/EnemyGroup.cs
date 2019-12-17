@@ -23,6 +23,7 @@ public class EnemyGroup : MonoBehaviour
     public void Remove(EnemyController controller)
     {
         Targets.Remove(controller.Id);
+        if(Targets.Count <= 0) Destroy(gameObject);
     }
     public void OnDestroy()
     {

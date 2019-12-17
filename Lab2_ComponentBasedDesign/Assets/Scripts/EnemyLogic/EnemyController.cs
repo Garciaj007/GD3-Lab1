@@ -14,8 +14,8 @@ public class EnemyController : MonoBehaviour
     private void Awake()
     {
         Id = TargetId;
-        @group = transform.parent.GetComponent<EnemyGroup>();
-        @group.Add(Id, transform.parent.position.XY() + Random.insideUnitCircle.normalized * wanderRadius);
+        group = transform.parent.GetComponent<EnemyGroup>();
+        group.Add(Id, transform.parent.position.XY() + Random.insideUnitCircle.normalized * wanderRadius);
         GetComponent<HealthComponent>().DeathDelegate += KillEnemy;
         animator = GetComponent<Animator>();
     }
@@ -33,11 +33,18 @@ public class EnemyController : MonoBehaviour
         animator.SetFloat("PlayerDistance", playerDistance);
     }
 
+    private void OnDestroy() => GetComponent<HealthComponent>().DeathDelegate -= KillEnemy;
+
     private void KillEnemy()
     {
-        GetComponent<Animator>().SetTrigger("OnDeath");
-        @group.Remove(this);
-        GetComponent<HealthComponent>().DeathDelegate -= KillEnemy;
+        group.Remove(this);
+        Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(!collision.CompareTag("CoreUnit")) return;
+        collision.GetComponent<HealthComponent>().Damage(1.0f);
+        KillEnemy();        
     }
 }
 

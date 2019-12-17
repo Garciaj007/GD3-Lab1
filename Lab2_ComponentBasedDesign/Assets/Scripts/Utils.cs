@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public static class Utils
+namespace Utils
 {
     public static class TimeFormat
     {
@@ -27,6 +27,39 @@ public static class Utils
         {
             return (value - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
         }
+    }
+
+    public class Timer
+    {
+        public delegate void OnTimerFinishedDelegate();
+        public event OnTimerFinishedDelegate TimerFinished;
+        
+        private float startTime;
+        private readonly float duration;
+        private bool hasStarted = false;
+        private bool isActive = false;
+        private bool isRepeatitive;
+
+        public Timer(float duration, bool isRepeatitive = true)
+        {
+            this.duration = duration;
+            this.isRepeatitive = isRepeatitive;
+        }
+
+        public void Update()
+        {
+            if(!isActive) return;
+
+            if(Time.time >= startTime + duration){
+                TimerFinished?.Invoke();
+                if(!isRepeatitive) Stop(); 
+                Reset();
+            }
+        }
+
+        public void Start() { isActive = true; if(!hasStarted){ Reset(); hasStarted = true; } }
+        public void Stop() { isActive = false; hasStarted = false; }
+        public void Reset() => startTime = Time.time;
     }
 }
 public static class VectorExtensions
