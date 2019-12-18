@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyGroup : MonoBehaviour
 {
     [SerializeField] private GameObject enemyObj = null;
-    public static int SpawnSize { get; set; } = 100;
+    public static int SpawnSize { get; set; } = 50;
     public Dictionary<int, Vector2> Targets { get; private set; } = new Dictionary<int, Vector2>();
 
     public void Start()

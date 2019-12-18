@@ -2,14 +2,14 @@
 public class EnemyController : MonoBehaviour
 {
     public static float wanderRadius = 1.0f;
-
     private static int targetId = 0;
     public static int TargetId => ++targetId;
+
+    public EnemyGroup group;
     public int Id { get; private set; }
 
     private Animator animator;
-
-    public EnemyGroup group;
+    private Utils.Timer toggleStateTimer = new Utils.Timer(4.0f);
 
     private void Awake()
     {
@@ -20,10 +20,17 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    private void Start()
+    {
+        toggleStateTimer.TimerFinished += ToggleState;
+        toggleStateTimer.Start();
+    }
+
     private void Update()
     {
-        var playerDistance = 10000.0f;
+        toggleStateTimer.Update();
 
+        var playerDistance = 10000.0f;
         foreach(var playerController in GameManager.Instance.Players)
         {
             var distance = (playerController.transform.position - transform.position).magnitude;
@@ -35,11 +42,14 @@ public class EnemyController : MonoBehaviour
 
     private void OnDestroy() => GetComponent<HealthComponent>().DeathDelegate -= KillEnemy;
 
+    private void ToggleState() => animator.SetBool("Attack", !animator.GetBool("Attack"));
+
     private void KillEnemy()
     {
         group.Remove(this);
         Destroy(gameObject);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(!collision.CompareTag("CoreUnit")) return;
