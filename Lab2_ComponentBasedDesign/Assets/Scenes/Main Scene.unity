@@ -391,13 +391,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279109747}
-  m_LocalRotation: {x: 0, y: -0, z: -0.008726558, w: 0.999962}
+  m_LocalRotation: {x: 0, y: 0, z: -0.010471772, w: 0.99994516}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 990523922}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.2}
 --- !u!1001 &329898081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -962,9 +962,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b894569e1a229db41ad87fe4e32c0f97, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d8a410ef03e5653499cb23db73adec46, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1256,6 +1256,8 @@ GameObject:
   - component: {fileID: 990523921}
   - component: {fileID: 990523920}
   - component: {fileID: 990523923}
+  - component: {fileID: 990523925}
+  - component: {fileID: 990523924}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1343,7 +1345,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraBounds: {x: 20, y: 15}
-  speed: 2
+  speed: 4
+--- !u!114 &990523924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990523919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: d8126a4240dc22e4e9ff30de70a7fbdf, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &990523925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 990523919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 990523922}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &1028514783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2397,17 +2476,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1983591338}
-        m_MethodName: UpdateSliderColor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1671762944
@@ -2423,7 +2491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 345217115}
-  sr: {fileID: 0}
   slider: {fileID: 1671762943}
   colorA: {r: 1, g: 0.13000315, b: 0, a: 1}
   colorB: {r: 0.3340696, g: 1, b: 0, a: 1}
@@ -2612,13 +2679,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1983591330}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53f468440f9924a4c85a98559a7fb44c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9218c61b84d53104792d389d529a1f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
   sr: {fileID: 1983591335}
-  slider: {fileID: 1671762943}
-  colorA: {r: 1, g: 0.09962939, b: 0, a: 1}
+  colorA: {r: 1, g: 0, b: 0, a: 1}
   colorB: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &3038363276250760519
 PrefabInstance:
